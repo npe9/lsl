@@ -1,0 +1,53 @@
+			   LSL Handbook, Version 3.1
+			       December 8, 1999
+
+This directory contains (minor revisions of) the traits in the LSL Handbook,
+which appears in Appendix A of ``Larch: Languages and Tools for Formal
+Specification'' by John V. Guttag and James J. Horning with S. J. Garland,
+K. D. Jones, A. Modet, and J. M. Wing, Springer-Verlag, 1993.
+
+The following revisions have been made to the traits in this directory.
+
+1.  Several axiomatizations have been corrected or reformulated.
+    (a) AbelianMonoid.lsl (page 199)
+        Added "implies AC".
+    (b) Boolean.lsl (page 161)
+        Added "AC(<=>)" to the implications.
+    (c) DerivedOrders.lsl (page 195)
+        Moved the first assertion to the implications.
+    (d) Integer.lsl (pages 163-164)
+        Corrected the second implied equation to "x <= y == x < succ(y)"
+        (originally, the "<" and "<=" relations were interchanged).
+    (e) Sequence.lsl (page 174)
+        Corrected the definition of "find" by treating the empty sequence as a
+        special case.
+
+2.  Several changes reflect new syntax in Version 3.1 of the LSL checker.
+    (a) The equality symbol "==" has been eliminated by replacing it with
+        "=" or "<=>".
+    (b) The propositions "S generated/partitioned by" have been amended to
+        "sort S generated/partitioned by".
+    (c) Notations for parameterized types have been introduced in Array1.lsl, 
+        Array2.lsl, ArraySlice2.lsl, Bag.lsl, BagBasics.lsl, BinaryTree.lsl, 
+	ChoiceBag.lsl, ChoiceSet.lsl, ComposeMaps.lsl, Deque.lsl, 
+	FiniteMap.lsl, List.lsl, ListStructure.lsl, ListStructureOps.lsl,
+	PriorityQueue.lsl, Queue.lsl, Sequence.lsl, Set.lsl, SetBasics.lsl,
+	Stack.lsl, StackBasics.lsl, String.lsl
+
+3.  Formal parameters have been added to IndexOp.lsl, JoinOp.lsl, and
+    MemberOp.lsl.
+
+4.  Minor, logically equivalent changes have been made in the formulation of
+    an axiom in ArithOps.lsl and Deque.lsl.
+
+5.  Minor changes have been made in the wording of some comments.
+
+
+This directory also a revised version, lslinit.lsi, or the LSL init file
+described in Appendix C of the book by Guttag and Horning.  This file
+customizes the lexical syntax of the LSL Checker.
+
+
+For the LSL Checker to find the files in this directory, the Unix environment
+variable LARCH_PATH should be defined to include this directory, e.g., by
+	setenv LARCH_PATH .:/usr/local/lib/LSL

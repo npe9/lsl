@@ -1,0 +1,45 @@
+commentSym  %
+
+%  Larch Shared Language (LSL) Initialization File
+
+
+%  Original from page 223 in Guttag and Horning, ``Larch: Languages and
+%  Tools for Formal Specification''
+
+% Modifications
+
+%  93.11.09  Garland at MIT	Added synonym: formulas for equations
+%  93.11.26  Garland at MIT	Added synonym: <=> for \iff
+%  94.05.23  Garland at MIT	Removed [ as openSym, ] as closeSym
+%				Removed synonyms: & for \and, | for \or,
+%					          ! for \not, != for \neq
+%				Removed synonyms used for checking LCL
+%				Added synonym: with for \forall
+%  99.12.09  Garland at MIT	Removed synonym: == for "\equals"
+
+idChar	    '
+opChar	    ~!#$&?@|
+singleChar  ;
+
+openSym	    { \< \langle
+closeSym    } \> \rangle
+selectSym   .
+
+simpleId    \bot \top
+
+synonym	    \and	/\
+synonym	    \or		\/
+synonym	    \implies	=>
+synonym	    \iff	<=>
+synonym	    \not	not
+synonym	    \not	~
+synonym	    \eq		=
+synonym	    \neq	~=
+synonym	    \arrow	->
+synonym	    \marker	__
+synonym     \forall     forall
+synonym	    \forall	with
+synonym     \eqsep      ;
+synonym	    equations	formulas
+
+synonym	    Bool	bool

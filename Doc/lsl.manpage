@@ -1,0 +1,198 @@
+
+
+
+LSL(l)                                                     LSL(l)
+
+
+NNAAMMEE
+       lsl   -  Larch  Shared  Language  (LSL)  Checker  (Release
+       3.1beta3)
+
+SSYYNNOOPPSSIISS
+       llssll [ _o_p_t_i_o_n_s ] _s_o_u_r_c_e_F_i_l_e _._._.
+
+DDEESSCCRRIIPPTTIIOONN
+       The commands llssll _a_b_c _._._.  and llssll _a_b_c_._l_s_l _._._.   check  the
+       LSL  traits  in the files _a_b_c_._l_s_l _._._.  for syntax and type
+       errors.  They also check all traits  referenced  by  these
+       files (in aassssuummeess, iimmpplliieess, or iinncclluuddeess clauses).  The LSL
+       Checker expects to find  the  specification  for  a  trait
+       named _T in a file named _T_._l_s_l.
+
+OOPPTTIIOONNSS
+       --llpp     Generates  _._l_p  files for use with Version 3.1b of
+               the Larch Prover (LP) to check the semantic asser-
+               tions  contained  in LSL specifications.  For each
+               trait _T,  the  file  _T___A_x_i_o_m_s_._l_p  axiomatizes  the
+               assertions  and  local assumptions of _T.  If _T has
+               an iimmpplliieess clause, the file _T___T_h_e_o_r_e_m_s_._l_p  axioma-
+               tizes  the  implied  propositions.   If _T requires
+               semantic checking, the file  _T___C_h_e_c_k_s_._l_p  contains
+               the  appropriate  proof  obligations.   NOTE:  The
+               implementation of --llpp is incomplete  and  will  be
+               changed in Release 4.0).
+
+       --pp      Prettyprints  _s_o_u_r_c_e_F_i_l_e _._._.  on the standard out-
+               put.
+
+       --qq      Fully qualifies all operators  and  terms  in  the
+               output  produced by the --llpp and --pp options.  NOTE:
+               Until the implementation of  --llpp  is  complete  in
+               Release  4.0,  the --qq option should always be used
+               when --llpp is used.
+
+       --ii _i_n_i_t_F_i_l_e
+               Causes the lexicial structure of LSL  to  be  cus-
+               tomized  by  _i_n_i_t_F_i_l_e_._l_s_i  instead of the  default
+               initialization file _l_s_l_i_n_i_t_._l_s_i.  If  no  initial-
+               ization  file  is found, the source files are pro-
+               cessed without it.
+
+       --ssoorrttss  Prints the sort list of the  trait  in  the  first
+               source file on the standard output.  (This list is
+               used by Larch interface language checkers.)
+
+       --ssyymmss   Prints signatures for the operators in the  opera-
+               tor  list of the trait in the first source file on
+               the standard output.  (This list is used by  Larch
+               interface languages checkers.)
+
+
+
+
+
+                         December 9, 1999                       1
+
+
+
+
+
+LSL(l)                                                     LSL(l)
+
+
+       --ttrr _t_r_a_n_s_l_a_t_i_o_n_F_i_l_e
+               Causes  the operators specified in _t_r_a_n_s_l_a_t_i_o_n_F_i_l_e
+               to be replaced by new operators in the output pro-
+               duced   by   the  --llpp  option.   Replacements  are
+               described using the syntax
+
+               _L_P_i_d_e_n_t_i_f_i_e_r ffoorr _n_a_m_e : _s_i_g_n_a_t_u_r_e
+
+
+UUSSAAGGEE
+       The LSL Checker searches for its initialization  file,  as
+       well  as  for further _._l_s_l files, in the current directory
+       or, if the environment variable LARCH_PATH is defined,  in
+       one of the directories named by that environment variable.
+       It is usually convenient to define LARCH_PATH  to  consist
+       of  the  current  directory followed by the directory con-
+       taining the LSL library, for example,
+
+              setenv LARCH_PATH .:/usr/local/lib/LSL
+
+       (directory names are separated by colons).
+
+CCHHAANNGGEESS
+       The definition of _s_o_r_t has been generalized to
+
+              _s_o_r_t ::= _s_i_m_p_l_e_I_d | _s_i_m_p_l_e_I_d [ _s_o_r_t _._._.  ]
+
+       The definition of _t_e_r_m has been generalized to allow quan-
+       tified variables.
+
+CCOOMMMMOONN UUSSEERR PPRROOBBLLEEMMSS AANNDD TTHHEEIIRR SSOOLLUUTTIIOONN
+       If  the  checker reports that it is continuing without its
+       initialization file, ensure that LARCH_PATH is defined and
+       that _l_s_l_i_n_i_t_._l_s_i is on that path.
+
+       If  the  checker reports errors in a trait that it checked
+       successfully in another directory (e.g., when  checking  a
+       trait  that  includes,  assumes, or implies the previously
+       checked trait), ensure that the  initialization  files  in
+       all directories on the LARCH_PATH are consistent.
+
+       If  the  checker reports errors in a library trait, ensure
+       that the current directory does not contain a  trait  with
+       the same name as that or some other library trait.
+
+FFUUTTUURREE EENNHHAANNCCEEMMEENNTTSS
+       The option --llpp will work better in Release 4.0.
+
+FFIILLEESS
+       lslinit.lsi   Customization for lexical structure of LSL
+
+SSEEEE AALLSSOO
+       John  V.  Guttag  and  James  J.  Horning  (editors), with
+       Stephen. J. Garland, Kevin D.  Jones,  Andres  Modet,  and
+
+
+
+                         December 9, 1999                       2
+
+
+
+
+
+LSL(l)                                                     LSL(l)
+
+
+       Jeannette M. Wing, ``Larch: Languages and Tools for Formal
+       Specification,'' Springer-Verlag, 1993.
+
+AAUUTTHHOORRSS
+       Stephen J. Garland, MIT Laboratory for Computer Science
+
+       Gary A. Feldman, William McKeeman, and Joseph P. Wild,
+              DEC Technical Languages and Environments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                         December 9, 1999                       3
+
+

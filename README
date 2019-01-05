@@ -1,0 +1,67 @@
+		  Larch Shared Language Checker and Handbook
+		  ------------------------------------------
+
+			       December 9, 1999
+
+     The Larch Shared Language (LSL) is a language for specifying properties of
+abstract data types in multisorted first-order logic.  The LSL Checker is a
+tool for checking LSL specifications for syntax and static semantic errors.
+The LSL Handbook contains axiomatizations for a number of common datatypes.
+
+     To use the LSL Checker and Handbook, you need to retrieve and install the
+file lsl.tar.gz.
+
+Obtaining LSL
+-------------
+
+     The file lsl.tar.gz is available both over the WWW and by anonymous ftp.
+To obtain it over the WWW, read the document with URL
+
+     http://www.sds.lcs.mit.edu/Larch/LSL/index.html
+
+To obtain it by anonymous ftp, type the following commands.
+
+     csh>       ftp ftp.sds.lcs.mit.edu
+     Name:      anonymous
+     Password:  your_email_address
+     ftp>       cd pub/Larch/LSL
+     ftp>       bin
+     ftp>	get lsl.tar.Z
+     ftp>	quit
+
+Installing LSL
+--------------
+
+ o Unpack the distribution by typing the command "tar xfz lsl.tar.gz".  This
+   will create a directory named "lsl3.1beta3".
+
+ o Compile the checker by typing "make depend" and then "make" in the directory
+   lsl3.1beta3/Code.
+
+ o Copy the executable file, named "lsl", to some directory on your search
+   path, for example, /usr/local/bin.
+
+ o If possible, make /usr/local/lib/LSL a symbolic link to the directory
+   lsl3.1beta3/LSL, or copy the contents of this directory to
+   /usr/local/lib/LSL.
+
+ o If possible, copy the man page for the checker, lsl3.1beta3/Doc/lsl.l, to
+   /usr/man/manl.  This makes it possible for users to see the man page by
+   typing "man l lsl".
+
+Using LSL
+---------
+
+     To prepare to use the LSL Checker, issue the following shell command (or
+put the following line in your .login file), with <d> replaced by the full path
+name of the lsl3.1beta3 directory (or by "/usr/local/lib"):
+
+          setenv LARCH_PATH .:<d>/LSL
+
+     To check a trait named xxx, put it in a file named xxx.lsl and type the
+command
+
+          lsl xxx 
+
+Any trait yyy referenced by xxx should be found in a file named yyy.lsl in one
+of the directories on LARCH_PATH.  See the man page for more details.
